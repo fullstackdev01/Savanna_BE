@@ -1,15 +1,19 @@
 {
     "version": 2,
     "builds": [
-        {
-            "src": "./dist/index.js",
-            "use": "@vercel/node"
-        }
+      {
+        // Specify file to convert to a serverless function
+        "src": "dist/index.js",
+        // Specify the NPM module that is used for the build
+        "use": "@now/node"
+      }
     ],
     "routes": [
         {
-            "src": "/(.*)",
-            "dest": "/"
+          // Specify which paths will route to a destination using a regex
+          "src": "/(.*)",
+          // Specify the paths' destination
+          "dest": "dist/index.js"
         }
-    ]
-}
+      ]
+  }
